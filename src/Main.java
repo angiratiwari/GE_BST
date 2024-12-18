@@ -6,5 +6,8 @@ public class Main {
         tree.insert(56);
         tree.insert(30);
         tree.insert(70);
+
+        // UC 2: Check the size of the tree
+        System.out.println("Size of the tree: " + tree.size()); // Should print 3
     }
 }
