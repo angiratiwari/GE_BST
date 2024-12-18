@@ -27,4 +27,16 @@ public class BinaryTree<T extends Comparable<T>> {
         return root;
     }
 
+    // UC 2: Method to check the size of the tree
+    public int size() {
+        return sizeRec(root);
+    }
+
+    private int sizeRec(INode<T> node) {
+        if (node == null) {
+            return 0;
+        }
+        return 1 + sizeRec(node.getLeft()) + sizeRec(node.getRight());
+    }
+
 }
