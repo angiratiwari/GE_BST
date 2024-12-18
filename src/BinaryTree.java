@@ -39,4 +39,27 @@ public class BinaryTree<T extends Comparable<T>> {
         return 1 + sizeRec(node.getLeft()) + sizeRec(node.getRight());
     }
 
+    // UC 3: Method to search for a specific key
+    public boolean search(T key) {
+        return searchRec(root, key);
+    }
+
+    private boolean searchRec(INode<T> root, T key) {
+        if (root == null) {
+            return false;
+        }
+
+        // If key is found
+        if (root.getKey().compareTo(key) == 0) {
+            return true;
+        }
+
+        // Recur on left or right subtree based on comparison
+        if (key.compareTo(root.getKey()) < 0) {
+            return searchRec(root.getLeft(), key);
+        } else {
+            return searchRec(root.getRight(), key);
+        }
+    }
+
 }
